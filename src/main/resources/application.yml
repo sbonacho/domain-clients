@@ -1,0 +1,6 @@
+kafka:
+  bootstrap-servers: 192.168.0.95:9092
+
+connector:
+  topic: general
+  group: createClient
