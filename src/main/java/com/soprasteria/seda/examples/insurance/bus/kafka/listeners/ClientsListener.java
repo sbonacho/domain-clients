@@ -42,7 +42,7 @@ public class ClientsListener {
     @KafkaListener(topics = "${connector.topics.domain}")
     public void clientDeleted(AbstractEvent event) {
         if (event instanceof ClientDeleted) {
-            LOGGER.info("ClientDeleted Event Received -> {} - {}", event, event.getClass().getName());
+            LOGGER.info("ClientDeleted Event Received -> {}", event);
             Client client = repository.findById(event.getId());
             client = repository.delete(client);
 
