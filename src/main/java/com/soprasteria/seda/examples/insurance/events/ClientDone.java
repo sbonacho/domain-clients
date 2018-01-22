@@ -1,5 +1,5 @@
 package com.soprasteria.seda.examples.insurance.events;
 
-public class ClientCreated extends AbstractEvent {
+public class ClientDone extends AbstractEvent {
 
 }

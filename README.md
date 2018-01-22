@@ -14,7 +14,7 @@ mvn install dockerfile:build
 This command starts the service with domain-clients name
 
 ```
-docker run --rm -p 8080:8080 -dit --name ch-create-client soprasteria/domain-clients
+docker run --rm -p 8080:8080 -dit --name domain-clients soprasteria/domain-clients
 ```
 
 Watching logs

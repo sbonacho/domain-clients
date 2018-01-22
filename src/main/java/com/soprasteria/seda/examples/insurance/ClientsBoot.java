@@ -1,6 +1,6 @@
 package com.soprasteria.seda.examples.insurance;
 
-import com.soprasteria.seda.examples.insurance.bus.kafka.listeners.ClientCreatedListener;
+import com.soprasteria.seda.examples.insurance.bus.kafka.listeners.ClientsListener;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +14,7 @@ public class ClientsBoot implements CommandLineRunner {
 	private static final Logger LOGGER = LoggerFactory.getLogger(ClientsBoot.class);
 
 	@Autowired
-	ClientCreatedListener listener;
+    ClientsListener listener;
 
 	public static void main(String[] args) {
 		SpringApplication app = new SpringApplication(ClientsBoot.class);

@@ -1,8 +1,37 @@
 package com.soprasteria.seda.examples.insurance.events;
 
 import java.io.Serializable;
+import java.util.UUID;
 
 public abstract class AbstractEvent implements Serializable {
+
+    private final String type;
+    private UUID id;
+    private String name;
+
+    protected AbstractEvent() {
+        this.type = this.getClass().getSimpleName();
+    }
+
+    public String getType() {
+        return type;
+    }
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public UUID getId() {
+        return id;
+    }
+
+    public void setId(UUID id) {
+        this.id = id;
+    }
+
     @Override
     public String toString() {
         try {

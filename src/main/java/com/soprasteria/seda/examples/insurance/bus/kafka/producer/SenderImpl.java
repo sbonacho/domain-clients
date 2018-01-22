@@ -17,7 +17,7 @@ public class SenderImpl<E> implements Sender<E> {
     @Autowired
     private KafkaTemplate<String, Object> kafkaTemplate;
 
-    @Value("${connector.topic}")
+    @Value("${connector.topics.domain}")
     private String topic;
 
     public ListenableFuture send(E event) {

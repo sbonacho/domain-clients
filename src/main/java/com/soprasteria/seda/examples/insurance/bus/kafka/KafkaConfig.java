@@ -1,6 +1,5 @@
 package com.soprasteria.seda.examples.insurance.bus.kafka;
 
-import com.soprasteria.seda.examples.insurance.events.ClientCreated;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringDeserializer;
@@ -25,6 +24,8 @@ public class KafkaConfig {
 
     @Value("${kafka.bootstrap-servers}")
     private String bootstrapServers;
+    @Value("${connector.group}")
+    private String kafkaGroup;
 
     @Bean
     public Map<String, Object> producerConfigs() {
@@ -56,23 +57,21 @@ public class KafkaConfig {
         props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);
 
         // allows a pool of processes to divide the work of consuming and processing records
-        props.put(ConsumerConfig.GROUP_ID_CONFIG, "${connector.group}");
+        props.put(ConsumerConfig.GROUP_ID_CONFIG, kafkaGroup);
 
         return props;
     }
 
     @Bean
-    public ConsumerFactory<String, ClientCreated> consumerFactory() {
-        JsonDeserializer des = new JsonDeserializer<>(ClientCreated.class);
+    public ConsumerFactory<String, Object> consumerFactory() {
+        JsonDeserializer des = new JsonDeserializer<>(Object.class);
         des.addTrustedPackages("com.soprasteria.seda.examples.insurance.events");
-        return new DefaultKafkaConsumerFactory<>(consumerConfigs(), new StringDeserializer(),
-                des);
+        return new DefaultKafkaConsumerFactory<>(consumerConfigs(), new StringDeserializer(),des);
     }
 
     @Bean
-    public KafkaListenerContainerFactory<ConcurrentMessageListenerContainer<String, ClientCreated>> kafkaListenerContainerFactory() {
-        ConcurrentKafkaListenerContainerFactory<String, ClientCreated> factory =
-                new ConcurrentKafkaListenerContainerFactory<>();
+    public KafkaListenerContainerFactory<ConcurrentMessageListenerContainer<String, Object>> kafkaListenerContainerFactory() {
+        ConcurrentKafkaListenerContainerFactory<String, Object> factory = new ConcurrentKafkaListenerContainerFactory<>();
         factory.setConsumerFactory(consumerFactory());
 
         return factory;
