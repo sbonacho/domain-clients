@@ -1,8 +1,11 @@
 package com.soprasteria.seda.examples.insurance.events;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import java.io.Serializable;
 import java.util.UUID;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 public abstract class AbstractEvent implements Serializable {
 
     private final String type;

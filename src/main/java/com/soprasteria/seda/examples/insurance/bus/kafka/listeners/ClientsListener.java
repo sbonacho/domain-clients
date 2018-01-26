@@ -28,7 +28,7 @@ public class ClientsListener {
         Client client = new Client();
         client.setId(event.getId());
         client.setName(event.getName());
-        client = repository.create(client);
+        repository.create(client);
         //TODO: What happen if an Exception is sent here
 
         ClientStored stored = new ClientStored();

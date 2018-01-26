@@ -1,8 +1,8 @@
 kafka:
-  bootstrap-servers: 192.168.0.95:9092
+  bootstrap-servers: 172.16.123.1:9092
 
 connector:
   topics:
-    app: general
+    app: createClient
     domain: production
   group: clients
