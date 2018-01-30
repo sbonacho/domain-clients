@@ -16,6 +16,10 @@ or
 mvn spring-boot:run
 ```
 
+## The run.sh Script
+
+This script is used to wrap how to start/stop the microservice. Write the way you want to start/stop the microservice
+
 # Docker Generation
 
 ```

@@ -1,3 +1,9 @@
 #!/bin/bash
 
-docker run --rm -dit --name domain-clients soprasteria/domain-clients
+SERVICE="domain-clients"
+
+if [ "$1" == "" ]; then
+    docker run --rm -dit --name $SERVICE soprasteria/$SERVICE
+else
+    docker stop $SERVICE
+fi
