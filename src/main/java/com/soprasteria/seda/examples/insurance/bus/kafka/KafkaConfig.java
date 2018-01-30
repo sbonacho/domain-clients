@@ -1,7 +1,5 @@
 package com.soprasteria.seda.examples.insurance.bus.kafka;
 
-import com.soprasteria.seda.examples.insurance.bus.kafka.converters.EventTypeMapper;
-import com.soprasteria.seda.examples.insurance.events.ClientCreated;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringDeserializer;
@@ -14,7 +12,6 @@ import org.springframework.kafka.config.ConcurrentKafkaListenerContainerFactory;
 import org.springframework.kafka.config.KafkaListenerContainerFactory;
 import org.springframework.kafka.core.*;
 import org.springframework.kafka.listener.ConcurrentMessageListenerContainer;
-import org.springframework.kafka.support.converter.Jackson2JavaTypeMapper;
 import org.springframework.kafka.support.serializer.JsonDeserializer;
 import org.springframework.kafka.support.serializer.JsonSerializer;
 
@@ -66,14 +63,8 @@ public class KafkaConfig {
     }
 
     @Bean
-    public Jackson2JavaTypeMapper getTypeMapper() {
-        return new EventTypeMapper();
-    }
-
-    @Bean
     public ConsumerFactory<String, Object> consumerFactory() {
         JsonDeserializer des = new JsonDeserializer<>(Object.class);
-        //des.setTypeMapper(getTypeMapper());
         des.addTrustedPackages("com.soprasteria.seda.examples.insurance.events");
         return new DefaultKafkaConsumerFactory<>(consumerConfigs(), new StringDeserializer(),des);
     }
