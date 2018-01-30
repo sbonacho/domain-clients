@@ -1,7 +1,20 @@
 # Microservice Clients
 
 This microservice implements all logic operations of clients
-  
+
+
+# Running Microservice
+
+```
+mvn package
+java -jar target/ch-create-client-0.1.0.jar
+```
+
+or
+
+```
+mvn spring-boot:run
+```
 
 # Docker Generation
 
@@ -14,7 +27,7 @@ mvn install dockerfile:build
 This command starts the service with domain-clients name
 
 ```
-docker run --rm -p 8080:8080 -dit --name domain-clients soprasteria/domain-clients
+docker run --rm -dit --name domain-clients soprasteria/domain-clients
 ```
 
 Watching logs
