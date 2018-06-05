@@ -1,4 +1,4 @@
-package com.soprasteria.seda.examples.insurance.bus.kafka;
+package com.sbonacho.seda.examples.insurance.bus.kafka;
 
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.clients.producer.ProducerConfig;
@@ -65,7 +65,7 @@ public class KafkaConfig {
     @Bean
     public ConsumerFactory<String, Object> consumerFactory() {
         JsonDeserializer des = new JsonDeserializer<>(Object.class);
-        des.addTrustedPackages("com.soprasteria.seda.examples.insurance.events");
+        des.addTrustedPackages("com.sbonacho.seda.examples.insurance.events");
         return new DefaultKafkaConsumerFactory<>(consumerConfigs(), new StringDeserializer(),des);
     }
 

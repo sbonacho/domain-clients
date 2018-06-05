@@ -31,7 +31,7 @@ mvn install dockerfile:build
 This command starts the service with domain-clients name
 
 ```
-docker run --rm -dit --name domain-clients soprasteria/domain-clients
+docker run --rm -dit --name domain-clients sbonacho/domain-clients
 ```
 
 Watching logs

@@ -1,6 +1,6 @@
-package com.soprasteria.seda.examples.insurance.bus.kafka.producer;
+package com.sbonacho.seda.examples.insurance.bus.kafka.producer;
 
-import com.soprasteria.seda.examples.insurance.bus.producer.Sender;
+import com.sbonacho.seda.examples.insurance.bus.producer.Sender;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

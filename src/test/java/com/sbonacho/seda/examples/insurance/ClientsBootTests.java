@@ -1,4 +1,4 @@
-package com.soprasteria.seda.examples.insurance;
+package com.sbonacho.seda.examples.insurance;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -8,10 +8,8 @@ import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.TimeUnit;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.soprasteria.seda.examples.insurance.bus.producer.Sender;
-import com.soprasteria.seda.examples.insurance.events.AbstractEvent;
-import com.soprasteria.seda.examples.insurance.events.ClientCreated;
-import com.soprasteria.seda.examples.insurance.events.ClientStored;
+import com.sbonacho.seda.examples.insurance.events.ClientCreated;
+import com.sbonacho.seda.examples.insurance.events.ClientStored;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.common.serialization.StringDeserializer;
@@ -64,7 +62,7 @@ public class ClientsBootTests {
 
 		// create a Kafka consumer factory
         JsonDeserializer des = new JsonDeserializer<>(Object.class);
-        des.addTrustedPackages("com.soprasteria.seda.examples.insurance.events");
+        des.addTrustedPackages("com.sbonacho.seda.examples.insurance.events");
 		DefaultKafkaConsumerFactory<String, Object> consumerFactory = new DefaultKafkaConsumerFactory<String, Object>(consumerProperties, new StringDeserializer(), des);
 
 		// set the topic that needs to be consumed

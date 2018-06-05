@@ -1,4 +1,4 @@
-package com.soprasteria.seda.examples.insurance.model;
+package com.sbonacho.seda.examples.insurance.model;
 
 import java.util.UUID;
 

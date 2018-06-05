@@ -1,6 +1,6 @@
-package com.soprasteria.seda.examples.insurance.persistence;
+package com.sbonacho.seda.examples.insurance.persistence;
 
-import com.soprasteria.seda.examples.insurance.model.Client;
+import com.sbonacho.seda.examples.insurance.model.Client;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
